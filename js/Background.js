@@ -3,6 +3,31 @@ var OS_LINUX = 0;
 var os = ((navigator.appVersion.indexOf("Win") == -1) ? OS_LINUX : OS_WIN);
 var settingsManager = new SettingsManager(os);
 
+function isCsv(item){
+  if(item.mime === "text/csv") return true;
+  else if (item.filename.match(/\.csv$/i)) return true;
+  else return false;
+}
+
+chrome.downloads.onDeterminingFilename.addListener( 
+  function (item, suggest) {
+    if(isCsv(item)) suggest({filename: item.filename + ".csv"});
+    else suggest();
+  }
+);
+
+
+//https://developer.chrome.com/extensions/downloads#method-download
+//https://jsfiddle.net/koldev/cW7W5/
+//https://stackoverflow.com/questions/49436819/chrome-65-change-to-download-blob-automatically-in-chrome-app
+var ihacklogChrome65Download = function (blob, filename) {
+        var url = window.URL.createObjectURL(blob);
+		var args = {url: url, filename: filename, saveAs: false};
+		var callback = function() {};
+		chrome.downloads.download(args, callback);
+        window.URL.revokeObjectURL(url);
+    };
+    
 Array.prototype.unique = function() {
 
 	var a = [];
@@ -91,24 +116,18 @@ Array.prototype.unique = function() {
 	}
 	
 	name = name+"_"+specialFormat(new Date())+"."+localStorage.exportFormat;
-	var link = document.createElement('a');
-	document.body.appendChild(link);
-
+	var myBlob;
+	
 	if(localStorage.exportFormat == 'txt')
 	{
-		link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(txt);
+		myBlob = new Blob([txt], {type: "text/plain"});
 	}
 	else
 	{
-		var myBlob = new Blob([csv.join('\n')], {"type": "text\/plain"});
-		link.href = window.URL.createObjectURL(myBlob);
+		myBlob = new Blob([csv.join('\n')], {type: "text/csv"});
 	}
 
-	link.download = name;
-	link.click(); 
-	element = link;
-	element.parentNode.removeChild(element);
-		
+	ihacklogChrome65Download(myBlob, name);
 	return a;
 };
 
