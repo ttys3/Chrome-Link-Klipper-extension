@@ -1,0 +1,253 @@
+*
+	{
+		margin:0px;
+		padding:0px;
+	}
+	/* @font-face {
+  font-family: 'Open Sans';
+  font-style: Regular;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), 
+  url('font/OpenSans-Regular.ttf') format('ttf');
+} */
+
+	html, body
+	{
+		font-family: 'Open Sans' !important;
+		font-size: 12px !important;
+		background-color: #f4f4f4;
+		height: 100%;
+	}
+	.wrapper
+	{
+		background-color: #f4f4f4;
+	}
+	.footer, .push
+	{
+		height: 50px; /* .push must be the same height as .footer */
+		
+	}
+	.logo
+	{	
+
+		height: 70px;
+		width: 279px;
+	}
+	
+	@media (min-width: 241px) and (max-width: 286px){
+		.logo {
+			width: 135px;
+		}
+	}
+	@media (min-width: 286px) and (max-width: 343px){
+		.logo {
+			width: 135px;
+		}
+	}
+	@media (min-width: 344px) and (max-width: 383px){
+		.logo {
+			width: 235px;
+		}
+	}
+	@media (min-width: 343px) and (min-width: 384px) {
+		.logo {
+			width: 184px;
+		}
+	}
+	@media (min-width: 384px) {
+		.logo {
+			width: 276px;
+		}
+	}
+	.wrapper {
+		min-height: 100%;
+		height: auto !important;
+		height: 100%;
+		margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
+	}
+	.footer, .footer .container
+	{
+		
+		background-color: #088A45;
+		padding-top: 6px;
+	}
+	.powered_by_text
+	{
+		color: black;
+		text-decoration:none;
+	}
+	.header, .header .container
+	{
+		background-color: #088A45;
+		
+	}
+	.navbar {
+		min-height: 88px !important;
+	}
+	.navbar-nav > li {
+		
+		padding: 18px 0px;
+		
+	}
+	@media (max-width: 765px) {
+		.navbar-nav > li {
+			padding: 0px 0px !important;
+		}
+		.version_top
+		{
+			display:none !important;
+		}
+		.version_bottom
+		{
+			display:block !important;
+		}
+		.codebox_bottom_link
+		{
+			margin-right: 25px !important;
+		}
+		.version_bottom
+		{
+			margin-left: 15px;
+		}
+	}
+	@media (max-width: 990px) {
+		.version_top
+		{
+			display:none !important;
+		}
+		.version_bottom
+		{
+			display:block !important;
+		}
+	}
+	.navbar-nav.navbar-right:last-child {
+		margin-top: 30px;
+		color:white !important;
+	}
+	.navbar-nav > li > a[href="#donate"] {
+		color: yellow !important;
+	}
+	.navbar-nav > li > a {
+		color:white !important;
+	}
+	.website_link
+	{
+		text-align:right;
+		text-decoration:none;
+	}
+	.powered_by
+	{
+		color:white;
+		text-decoration:none;
+	}
+	.features
+	{
+		margin:10px 0px 10px 30px;
+	}
+	.bs-docs-nav .navbar-toggle .icon-bar {
+		background-color: white;
+	}
+	.navbar-collapse {
+		box-shadow:none !important;	
+	}
+	.navbar-nav.navbar-right:last-child {
+		margin-right: 0px !important;
+	}
+	.row
+	{
+		margin-top:10px;
+		margin-bottom:10px;
+		text-align: justify;
+	}
+	.navbar-toggle {
+		margin-top: 26px !important;
+		margin-bottom: 26px !important;
+	}
+	.nav > li > a:hover, .nav > li > a:focus {
+		text-decoration: none;
+		background-color: transparent !important; 
+	}
+	.navbar-nav > li > a {
+		padding-top: 30px !important;
+		padding-bottom: 1px !important; 
+		border-bottom: 2px solid #088A45;
+		margin: 0 10px;
+	}
+	.navbar-nav > li.active > a {
+		border-bottom: 2px solid #ffffff;
+	}
+	.navbar-nav > li > a:hover {
+		border-bottom: 2px solid #333;
+	}
+	.version_bottom
+	{
+		color:white;
+	}
+	.version_bottom
+	{
+		display:none;
+	}
+	a:hover, a:focus {
+		color: #2a6496;
+		text-decoration: none !important; 
+	}
+	.panel-heading:hover
+	{
+		cursor:pointer;
+	}
+	
+	.form-group {
+		overflow: auto;
+	}
+	.form-group label {
+		text-align: left;
+	}
+	.form-group input[type="text"], .form-group select, .save, .alert, .input-group-addon {
+		border-radius: 0 !important;
+	}
+	.advance-settings {
+		margin: 20px 0;
+	}
+	.save,.reset, .donate-btn {
+		background: #088A45 !important;
+		border-radius: 0 !important;
+	}
+	.alert {
+		display: none;
+	}
+	.error-x {
+		position: absolute !important;
+		right: 16px;
+		z-index: 2;
+		width: 33px;
+		height: 33px;
+		line-height: 33px !important;
+		text-align: center;
+	}
+	#regexName {
+		padding-right: 33px !important;
+	}
+	.tooltip-btn {
+		border-radius: 50% !important;
+		padding: 5px 12px !important;
+		outline: none;
+	}
+	.tooltip-info {
+		font-size: 25px;
+		margin-top: 4px;
+	}
+	#changelog b {
+		font-size: 20px;
+	}
+	.tab-pane h2 {
+		font-weight:bold;
+	}
+	input[type="image"] {
+		outline: none;
+	}
+	.donate {
+		margin-bottom: 30px;
+	}
+	fieldset legend h2 {
+		font-size: 23px;
+	}

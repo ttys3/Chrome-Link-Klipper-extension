@@ -1,0 +1,40 @@
+body { 
+	min-width: 246px; 
+	overflow-x: hidden;
+}
+p.title {
+	padding: 5px;
+	text-align: center;
+	font-weight: 400;
+	font-family: Lucida Calligraphy;
+	box-sizing: border-box;
+}
+.btn {
+	border-radius: 0;
+	font-family: Calibri;
+	display: block;
+	margin: 0 10px 10px;
+}
+.btn.btn-success {
+	background: #088A45;
+}
+div.logo {
+	background: #088A45;
+	margin-bottom: 10px;
+	text-align: center;
+}
+div.logo > img {
+	height: 40px;
+	margin: 7px 0;
+}
+hr {
+	margin: 10px 0;
+}
+div.info {
+	margin: 0 10px;
+}
+div.info div {
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}

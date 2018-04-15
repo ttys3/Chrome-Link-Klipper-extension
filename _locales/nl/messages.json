@@ -1,0 +1,10 @@
+{
+   "appDesc": {
+      "description": "De beschrijving van de toepassing , weergegeven in de webwinkel.",
+      "message": "Extract alle links op een webpagina en deze exporteren naar een bestand."
+   },
+   "appName": {
+      "description": "De titel van de toepassing , weergegeven in de webwinke.",
+      "message": "Link Klipper - Extract alle links"
+   }
+}

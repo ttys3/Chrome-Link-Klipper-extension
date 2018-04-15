@@ -1,0 +1,31 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "js/vendor/jquery-1.11.1.min.js", "js/SettingsManager.js", "js/Background.js", "js/ContextMenu.js" ]
+   },
+   "browser_action": {
+      "default_icon": "images/klipper-small-logo.png",
+      "default_popup": "pages/popup.html",
+      "default_title": "Link Klipper : Extract the links of this page to a CSV"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/Core.js" ],
+      "matches": [ "\u003Call_urls>", "http://*/*", "https://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "icons": {
+      "128": "images/klipper-small-logo.png",
+      "16": "images/klipper-small-logo.png",
+      "48": "images/klipper-small-logo.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj7dWadHDbMtHJ+F6Huxr92qC4FpNzkj/eJ6N1WJGJYeeBZ+nrvU3oSPAMd7yn74ikE/5zthSWHVvrxrNItYF8LL76tMdQJPMYQCQbckxdgzRJVoIfsocFe24p2jmjVWhG4ofCLTBoLsGeDDCNqwtevUt9588MmzckZNdqHDLL0CAjaMXCPYwc+rO8hD5RMBwj6fTLdLvyUT1RAGDab4dIL/lZ0rAvzxvk8PTX3EaZLW4DgrtIgJ7qnqbiA0mzdisxNm6gSH8AbBhi4lLprc/HTGYXWyNNRv6iocORHXUTzN1yl5nfn9xP/ZhAV6jXP9AjdtwREXGTuG0yLPNSkK+1QIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_appName__",
+   "options_page": "pages/options.html",
+   "permissions": [ "tabs", "bookmarks", "http://*/*", "https://*/*", "storage", "contextMenus" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.4.1"
+}

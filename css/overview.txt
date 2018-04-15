@@ -1,0 +1,231 @@
+<input type="hidden" value='<?php echo $data['subscription']['subscription_data']; ?>' name="subscription">
+<input type="hidden" name="overview" value="1">
+<?php foreach($data['subscription']['children'] as $cKey => $child) { ?>
+    <?php foreach($child['bookyears'] as $bKey => $bookyear) { ?>
+        <?php foreach($bookyear['periods'] as $pKey => $period) { ?>
+            <?php foreach($period['weeks'] as $wKey => $week) { ?>
+                <?php foreach($week['locations'] as $lKey => $location) { ?>
+                    <div class="main-table subscription-main-box child-box clearfix child-<?php echo $cKey; ?>">
+                        <section>
+                            <section class="main-table-right subscription-child-name">
+                                <h2><?php echo $child['child']['name'].' '.$child['child']['lastname']; ?></h2>
+                                <h2 style="float:right;" class="bookyear-amount"><span>&euro;</span> <span class="child-bookyear-total">0,00</span></h2>
+                            </section>
+                            <section class="main-table-right" style="border-radius: 0;">
+                                <div class="subscription-box">
+                                    <h3>
+                                        <div id="breadcrumbs" style="font-size: 14px;">
+                                            <span>PERIODES </span> / 
+                                            <span><?php echo $bookyear['bookyear']['name'].' '.$period['period']['periods']; ?></span> / 
+                                            <span><?php echo $week['week']['weeks']; ?></span>	/
+                                            <span><?php echo $location['location']['location_name']; ?></span>	/
+                                            <span>MAAK UW KEUZE PER DAG</span>
+                                        </div>
+                                    </h3>
+                                    <table class="days">
+                                        <?php foreach($location['days'] as $dKey => $day) { ?>
+                                            <tr class="activity day-<?php echo $dKey; ?>">
+                                                <td><?php echo $day['day']['days']; ?>:</td>
+                                                <td class="choose-activity">
+                                                    <?php if($day['selected'] != 0) {
+                                                        foreach($day['programs'] as $program) {
+                                                            foreach($program['activities'] as $activity) {
+                                                                if($day['selected'] == $activity['activityId']) {
+                                                                        echo $program['program_name'].": ".$activity['title'];
+                                                                    }
+                                                                }
+                                                            }
+                                                        } else { ?>
+                                                        U <?php echo $child['child']['name'].' '.$child['child']['lastname']; ?> INGESCHREVEN VOOR <?php echo $day['day']['days']; ?>
+                                                    <?php } ?>
+                                                    <div id="day-dialog-<?php echo $dKey; ?>-<?php echo $cKey; ?>" class="zoom-anim-dialog dialog-box mfp-hide">
+                                                        <h2>Maak Uw Keuze Voor <?php echo $dKey ?></h2>
+                                                        <table class="programs">
+                                                            <tr>
+                                                                <td>Programma</td>
+                                                                <td>Titel</td>
+                                                                <td></td>
+                                                                <td style="text-align: right;">Prijs</td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <?php foreach($day['programs'] as $program) { ?>
+                                                                <?php foreach($program['activities'] as $activity) { ?>
+                                                                    <tr class="activity-<?php echo $activity['id']; ?>">
+                                                                        <td><?php echo $program['program_name']; ?></td>
+                                                                        <td><?php echo $activity['title']; ?></td>
+                                                                        <td>
+                                                                            <span class="info popup-with-zoom-anim modal" href="#activity-dialog-<?php echo $activity['id']; ?>-<?php echo $cKey; ?>">Info</span>
+                                                                            <div id="activity-dialog-<?php echo $activity['id']; ?>-<?php echo $cKey; ?>" class="zoom-anim-dialog dialog-box mfp-hide">
+                                                                                <h2><?php echo $activity['title']; ?> <span style="margin-left: 50px;">Prijs: &euro; <?php echo number_format($activity['price'], 2, ',', ''); ?></span></h2>
+                                                                                <div>
+                                                                                    <?php
+                                                                                    if (isset($activity["tabContent"]["block"])) {
+                                                                                        foreach ($activity["tabContent"]["block"] as $block) {
+                                                                                            switch ($block["tab_content_type"]) {
+                                                                                                case BLOCK_TYPE_CONTENT:
+                                                                                                    ?>
+                                                                                                    <div style="width: 100%; margin: 10px 0;" class="block-contianer-div">
+                                                                                                        <?php
+                                                                                                        if (isset($block["content"]["text_data"]["tab_block_data"])) {
+                                                                                                            echo $block["content"]["text_data"]["tab_block_data"];
+                                                                                                        }
+                                                                                                        ?>
+                                                                                                    </div>
+                                                                                                    <?php
+                                                                                                    break;
+                                                                                                case BLOCK_TYPE_RIGHT_CONTENT_LEFT_IMAGE:
+                                                                                                    ?>
+                                                                                                    <div style="width: 100%; margin: 10px 0;" class="block-contianer-div">
+                                                                                                        <div style="width: 70%; float: left; padding-right: 5%;" class="block-content-left-div">
+                                                                                                            <?php
+                                                                                                            if (isset($block["content"]["text_data"]["tab_block_data"])) {
+                                                                                                                echo $block["content"]["text_data"]["tab_block_data"];
+                                                                                                            }
+                                                                                                            ?>
+                                                                                                        </div>
+                                                                                                        <div style="width: 25%; float: left;" class="block-image-div">
+                                                                                                            <ul class="slider">
+                                                                                                                <?php
+                                                                                                                if (isset($block["content"]["image_data"]) && !empty($block["content"]["image_data"])) {
+                                                                                                                    foreach ($block["content"]["image_data"] as $image_data) {
+                                                                                                                        ?>
+                                                                                                                        <li><img src="<?php echo base_url() . "resources/img/new_tab_images/" . $activity['id'] . "/" . $image_data["tab_block_data"]; ?>" width="100%"/></li>
+                                                                                                                        <?php
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                        <br style="clear: both;">
+                                                                                                    </div>
+                                                                                                    <?php
+                                                                                                    break;
+                                                                                                case BLOCK_TYPE_RIGHT_IMAGE_LEFT_CONTENT:
+                                                                                                    ?>
+                                                                                                    <div style="width: 100%; margin: 10px 0;" class="block-contianer-div" >
+                                                                                                        <div class="block-image-div" style="width: 25%; float: left; padding-right: 5%;" >
+                                                                                                            <ul class="slider">
+                                                                                                                <?php
+                                                                                                                if (isset($block["content"]["image_data"]) && !empty($block["content"]["image_data"])) {
+                                                                                                                    foreach ($block["content"]["image_data"] as $image_data) {
+                                                                                                                        ?>
+                                                                                                                        <li><img src="<?php echo base_url() . "resources/img/new_tab_images/" . $activity['id'] . "/" . $image_data["tab_block_data"]; ?>" width="100%" /></li>
+                                                                                                                        <?php
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                        <div style="width: 70%; float: left;" class="block-content-right-div">
+                                                                                                            <?php
+                                                                                                            if (isset($block["content"]["text_data"]["tab_block_data"])) {
+                                                                                                                echo $block["content"]["text_data"]["tab_block_data"];
+                                                                                                            }
+                                                                                                            ?>
+                                                                                                        </div>
+                                                                                                        <br style="clear: both;">
+                                                                                                    </div>
+                                                                                                    <?php
+                                                                                                    break;
+
+                                                                                                case BLOCK_TYPE_ROUTE:
+                                                                                                    ?>
+                                                                                                    <div style="width: 100%; margin: 10px 0;" class="block-contianer-div">
+
+                                                                                                        <h3>Jouw vertrekpunt:</h3>
+                                                                                                        <form action="<?php echo base_url().'sports/get_directions'; ?>" method="post" target="_blank">
+                                                                                                            <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 10px; -webkit-font-smoothing:antialiased; border-spacing:0px;width: 100%;">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="background-color:rgb(223, 226, 169); border-top-left-radius: 10px;">
+                                                                                                                            <p style="margin-left:40px">Straat + huisnummer<br>
+                                                                                                                                <input name="street" size="24" style="margin:0px" type="TEXT"><br>Plaats<br>
+                                                                                                                                <input name="city" size="24" style="margin:0px" type="TEXT">
+                                                                                                                            </p>
+                                                                                                                        </td>
+                                                                                                                        <td style="background-color:rgb(223, 226, 169); width:40px">
+                                                                                                                            <p><strong>OR</strong></p>
+                                                                                                                        </td>
+                                                                                                                        <td style="background-color:rgb(223, 226, 169); border-top-right-radius: 10px;">
+                                                                                                                            <p>Postcode<br>
+                                                                                                                                <input maxlength="7" name="zipcode" size="7" style="margin:0px" type="TEXT">
+                                                                                                                            </p>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td style="background-color: rgb(223, 226, 169); text-align: right; border-bottom-left-radius: 10px;">
+                                                                                                                            <input type="submit" class="getDirections" style="margin-right: 25px;margin-bottom: 10px;" value="Route beschrijving">
+                                                                                                                        </td>
+                                                                                                                        <td style="background-color: rgb(223, 226, 169);">&nbsp;</td>
+                                                                                                                        <td style="background-color: rgb(223, 226, 169); border-bottom-right-radius: 10px;">&nbsp;</td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </form>
+                                                                                                        <div id="googleMap_<?php echo $block['id'] ?>" class="googleMap" style="width:100%;height:300px;"></div>
+                                                                                                    </div>
+                                                                                                    <?php
+                                                                                                break;
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                    ?>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td style="text-align: right;">&euro; <?php echo number_format($activity['price'], 2, ',', ''); ?></td>
+                                                                        <td style="text-align: right;"><span class="select-activity" data-title="<?php echo $activity['title']; ?>" data-id="<?php echo $activity['id']; ?>" data-day="<?php echo $dKey; ?>" data-child="<?php echo $cKey; ?>" data-program="<?php echo $program['program_name']; ?>" data-amount="<?php echo $activity['price']; ?>">Selecteer</span></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                            <?php } ?>
+                                                        </table>
+                                                        <br>
+                                                        <span>KLIK HIER INDIEN U VOOR <?php echo strtoupper($day['day']['days']); ?> EEN ANDERE LOCATIE WENST TE KIEZEN</span>
+                                                    </div>
+                                                </td>
+                                                <?php $display = ''; if($day['selected'] != 0){ $display = 'display: inline-block;'; } ?>
+                                                <td class="activity-info"><span class="info popup-with-zoom-anim modal" style="<?php echo $display; ?>" href="#activity-dialog-<?php echo $day['selected']; ?>-<?php echo $child['child']['id']; ?>">Info</span></td>
+                                                <?php $amount_display = ''; if($day['selected'] != 0){ $amount_display = 'display: table-cell;'; }  ?>
+                                                <td class="amount-activity" style="<?php echo $amount_display; ?>"><span>&euro;</span> 
+                                                    <span class="amount">
+                                                        <?php
+                                                        foreach($day['programs'] as $program) {
+                                                            foreach($program['activities'] as $activity) {
+                                                                if($day['selected'] == $activity['activityId']) {
+                                                                        echo number_format($activity['price'], 2, ',', '');
+                                                                    }
+                                                                }
+                                                            }
+                                                        ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                        <tr><td colspan="4">&nbsp;</td></tr>
+                                    </table>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                    <div class="main-table subscription-main-box clearfix subtotal">
+                        <h2>SUB-TOTAAL : </h2>
+                        <h2 style="float:right;" class="amount-sub-total sub-total-<?php echo $cKey; ?>"><span>&euro;</span> <span class="amount"><?php echo number_format($location['subtotal'], 2, '.', ''); ?></span></h2>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        <?php } ?>
+    <?php } ?>
+<?php } ?>
+<div class="main-table subscription-main-box clearfix total" style="background: #F13134 !important;">
+    <?php if($data['subscription']['payment_type'] == 1){ $payment_type = 'ONLINE BETALEN'; } else if($data['subscription']['payment_type'] == 2){ $payment_type = 'BANKOVERSCHRIJVING'; } ?>
+    <h2 style="color: white;">TOTAAL : BETALEN VIA : <?php echo $payment_type; ?><input type="hidden" value="<?php echo $data['subscription']['payment_type']; ?>" name="payment_type" class="payment-type"> <a style="color: white;" class="payment-type-change" href="javascript:void(0);">(wijzigen)</a></h2>
+    <h2 style="float: right;color: white;" class="amount-total"><span>&euro;</span> <span class="amount"><?php echo number_format($data['subscription']['total'], 2, '.', ''); ?></span><div><input type="hidden" value="<?php echo $data['subscription']['total']; ?>" data-amount="0" name="total" class="total-child"></div></h2>
+</div>
+<div>
+    <div class="submit_div" style="float:left;">
+        <a href="javascript:void(0)" class="form-submit edit-subscription">TERUG (WIJZIGING MAKEN)</a>
+    </div>
+    <div class="submit_div" style="float:right;">
+        <a href="javascript:void(0)" class="form-submit submit-overview">IK HEB HET OVERZICHT NAGEKEKGEN: DOORGAAN</a>
+    </div>
+</div>

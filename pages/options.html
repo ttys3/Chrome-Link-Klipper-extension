@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="../js/vendor/jquery-1.11.1.min.js"></script>
+	<script src="../js/vendor/bootstrap.js"></script>
+	<script src="../js/OptionsNew.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="../font/font-awesome-4.1.0/css/font-awesome.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/vendor/bootstrap.css"/>
+	
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+	<body>
+		<div class="wrapper">
+			<header class="navbar navbar-static-top bs-docs-nav header" id="top" role="banner">
+			  <div class="container">
+				<div class="navbar-header">
+				  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a href="" class="navbar-brand"><img src="../images/klipper-logo.png" class="logo img-responsive"></a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+				  <ul id ="optionsTab" class="nav navbar-nav" role="tablist">
+					<!-- <li class="active">
+					  <a href="#home" role="tab" data-toggle="tab" href="">Home</a>
+					</li> -->
+					<li class="active">
+					  <a  role="tab" data-toggle="tab" href="#profile">Settings</a>
+					</li>
+					<li>
+					  <a role="tab" data-toggle="tab" href="#messages">FAQ</a>
+					</li>
+					<li>
+					  <a role="tab" data-toggle="tab" href="#changelog">Changelog</a>
+					</li>
+					<li >
+					  <a role="tab" data-toggle="tab" href="#settings">About </a>
+					</li>
+					<li >
+					  <a role="tab" data-toggle="tab" href="#donate">Donate </a>
+					</li>
+					
+				  </ul>
+				  <ul class="nav navbar-nav navbar-right">
+					<li class="version_top">Version 2.4.1</li>
+				  </ul>
+				</nav>
+					
+			  </div>
+			</header>
+			<div class="container">
+				<div class="tab-content">
+					
+					<div class="tab-pane active" id="profile">
+						<div class="alert alert-success" role="alert">
+							<i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;&nbsp;Settings saved successfully !
+						</div>
+						<h2>Settings</h2>
+						<div class="advance-settings">
+							<div class="row">
+								<div class="form-group">
+									<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+										<label>Export the file as (Extension)</label>
+									</div>
+									<div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
+										<select class="form-control export-format">
+											<option value="csv">CSV</option>
+											<option value="txt">TXT</option>
+										</select>
+									</div>
+									<i class="fa fa-question-circle fa-2 tooltip-info" data-toggle="tooltip" data-placement="bottom" title="Download the file either in a csv format or in a txt format"></i>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+										<label for="regexName">Regex</label>
+									</div>
+									<div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
+										<div class="input-group">
+										  <span class="input-group-addon">
+											<input type="radio" name="match" class="radio" value="1">
+										  </span>
+										  <input type="text"  class="form-control radio-text" id="regexName">
+										  <span class="glyphicon glyphicon-remove form-control-feedback error-x" style="display: none;"></span>
+										</div><!-- /input-group -->
+									</div><!-- /.col-lg-6 -->
+									<i class="fa fa-question-circle fa-2 tooltip-info" data-toggle="tooltip" data-placement="bottom" title="Get all the links which matches the regular expression specified. For e.g: ^[a-z0-9-]+$"></i>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+										<label for="extensions">Multiple Extensions</label>
+									</div>
+									<div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
+										<div class="input-group">
+										  <span class="input-group-addon">
+											<input type="radio"  name="match" class="radio" value="2">
+										  </span>
+										  <input type="text" class="form-control radio-text" id="extensions" placeholder="Enter comma separated values">
+										</div><!-- /input-group -->
+									</div><!-- /.col-lg-6 -->
+									<i class="fa fa-question-circle fa-2 tooltip-info" data-toggle="tooltip" title="Get all the links which matches the file formats specified in comma separated format"></i>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<button class="save btn btn-success btn-block">Save</button>
+								</div>
+								<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+									<button class="reset btn btn-success btn-block">Reset</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="messages">
+					<h2>FAQ</h2>
+						<div class="panel-group" id="accordion">
+						  <div class="panel panel-default">
+						  
+							<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" >
+							  <h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+								  What is Link Klipper ?
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in">
+							  <div class="panel-body">
+								Link Klipper is a chrome extension to extract unique links on a specific web page and store it in a csv or a txt format.
+							  </div>
+							</div>
+						  </div>
+						  <div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+							  <h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+								  What are the options on the settings page ?
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse">
+							  <div class="panel-body">
+								The format in which one wants to download the file, if links should match a specific regular expression and only those links should be exported and if you want specific file formats extension links to be exported can be managed via the Settings page.
+							  </div>
+							</div>
+						  </div>
+						  <div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
+							  <h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+								  Is it free ?
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse">
+							  <div class="panel-body">
+								 Yes, this extension is absolutely free !
+							  </div>
+							</div>
+						  </div>
+						  <div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour">
+							  <h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+								  I need some more features / extra enhancements to this plugin, how can you help me ?
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseFour" class="panel-collapse collapse">
+							  <div class="panel-body">
+								 Yes we offer customized versions of this plugin catering to your specific need. Please write to <a href="mailto:info@codebox.in" target="">info@codebox.in</a> describing your detailed requirement and we will get back to you as soon as possible.
+								
+							  </div>
+							</div>
+						  </div>
+						</div>
+					</div>
+					<div class="tab-pane" id="changelog">
+					<h2>Changelog</h2>
+					<br/>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<b>2.4.1</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<ul class="features">
+									<li>Fixed issue with regex in settings.</li>
+									<li>Fixed issue while running for particular setups.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<b>2.4</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<ul class="features">
+									<li>Fixed issue with regex in settings.</li>
+									<li>Added anchor text in csv file.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<b>2.3</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<ul class="features">
+									<li>Added donate page.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<b>2.2</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<ul class="features">
+									<li>Fixed the issue by removing duplicate links from the web page.</li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<b>2.1</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<ul class="features">
+									<li>Options link in the context menu.</li>
+									<li>Options link in the Extension popup box.</li>
+									<li>Filename with date of export.</li>
+									<li>Bug fixed for context menu link when right clicked on a selected/highlighted text.</li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<b>2.0</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<ul class="features">
+									<li>A field to select the file format to export i.e csv or txt.</li>
+									<li>Regex to match all/selected links and extract only those to csv/txt.</li>
+									<li>Feature to extract links matching particular extension/s.</li>
+									<li>Fixed issue with option window opening in incognito window.</li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<b>1.0</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<ul class="features">
+									<li>Extract all the links on the webpage</li>
+									<li>Store all the extracted links as a CSV file</li>
+									<li>Custom drag a selectable area on the webpage from which all the links will be extracted</li>
+								</ul>
+							</div>
+						</div>
+						
+						
+					</div>
+					<div class="tab-pane" id="settings">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<b>Link Klipper</b> is a simple yet very powerful chrome extension which helps you extract all the unique links on a webpage and export them to a file. No more hassle to copy each link from a webpage and store it individually.
+								This plugin will add a right click context menu to your browser. By right clicking on any part of the webpage, you will be able to access the options under the context menu entry "Link Klipper - Extract Links".
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<b>Applications :</b>
+								<ul class="features">	  
+									<li>For people who work in the SEO industry, you can quickly collect a group of links on the page</li>
+									<li>While browsing through images on any page, you can download the target links of all the images</li>
+									<li>While researching online, you can gather useful resourceful links and store them for future reference to a CSV file </li>
+								</ul>	
+							</div>	
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								Any recommendations, feature enhancements or bug reports please contact us at <a href="mailto:support@codebox.in" class="links">
+								support@codebox.in</a> and we will make sure to have them all added/rectified in our next release as soon as possible.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<b>About us:</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								Codebox is a software development company offering offshore consulting, outsourcing and expertise in Web application development, Mobile applications and Chrome extensions.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<i class="fa fa-envelope icons"></i>
+									<a href="mailto:support@codebox.in" class="links">support@codebox.in</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<i class="fa fa-globe icons"></i>
+									<a href="http://www.codebox.in" class="links" target=" ">www.codebox.in</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<i class="fa fa-facebook-square icons"></i>
+									<a href="http://www.facebook.com/codeboxindia " target=" " class="links">www.facebook.com/codeboxindia </a>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="donate">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center donate">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+									<fieldset>
+										<legend><h2>Donate via Paypal</h2></legend>
+										<input type="hidden" name="cmd" value="_s-xclick">
+										<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+										">
+										<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+										<img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+									</fieldset>
+								</form>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center donate">
+								<form action='https://www.moneybookers.com/app/payment.pl' method='post' target=”_blank”>
+									<fieldset>
+										<legend><h2>Donate via Skrill</h2></legend>
+										<input type='hidden' name='pay_to_email' value='info@codebox.in'>
+										<input type='hidden' name='return_url' value='http://www.codebox.in/products/linkklipper/'>
+										<input type='hidden' name='language' value='EN'>
+										<div class="form-group">
+											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left">
+												<label for="currency">Please enter the amount you would like to give us</label>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+												<select name='currency' size='1' class="form-control">
+													<!-- <option>Select a currency</option> -->
+													<option value='USD' selected>US Dollar</option>
+													<option value='GBP'>GB Pound</option>
+													<option value='EUR'>Euro</option>
+													<option value='JPY'>Yen</option>
+													<option value='CAD'>Canadian Dollar</option>
+													<option value='AUD'>Australian Dollar</option>
+												</select>
+											</div><!-- /.col-lg-6 -->
+										</div>
+										<div class="form-group">
+											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left">
+												<label for="amount">Amount</label>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+												<input type='text' class="form-control" name='amount' value='9.9' size='10'>
+											</div>
+										</div>
+										<input type='hidden' name='detail1_text' value='Donation to help support Link Klipper'>
+										<input type='hidden' name='detail1_description' value='Link Klipper Donation'>
+										<br>
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<input class="btn btn-success btn-block donate-btn" type='submit' alt='Click to make a donation to Shatter-Box[dot]com' value='Donate!' />
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col pull-right codebox_bottom_link">
+						<a href="http://www.codebox.in" class="website_link" target=" ">
+							<span class="powered_by_text">Powered by</span> 
+							<span class="powered_by">Codebox</span>
+						</a>
+					</div>
+					<div class="col version_bottom">
+						Version 2.4.1
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

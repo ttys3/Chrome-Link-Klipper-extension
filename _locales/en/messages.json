@@ -1,0 +1,14 @@
+{
+   "OptionButton": {
+      "description": "Option Button",
+      "message": "Option"
+   },
+   "appDesc": {
+      "description": "The description of the application, displayed in the web store.",
+      "message": "Extract all links on a webpage and export them to a file."
+   },
+   "appName": {
+      "description": "The title of the application, displayed in the web store.",
+      "message": "Link Klipper - Extract all links"
+   }
+}
