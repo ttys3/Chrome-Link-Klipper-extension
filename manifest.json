@@ -21,11 +21,10 @@
       "16": "images/klipper-small-logo.png",
       "48": "images/klipper-small-logo.png"
    },
-   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj7dWadHDbMtHJ+F6Huxr92qC4FpNzkj/eJ6N1WJGJYeeBZ+nrvU3oSPAMd7yn74ikE/5zthSWHVvrxrNItYF8LL76tMdQJPMYQCQbckxdgzRJVoIfsocFe24p2jmjVWhG4ofCLTBoLsGeDDCNqwtevUt9588MmzckZNdqHDLL0CAjaMXCPYwc+rO8hD5RMBwj6fTLdLvyUT1RAGDab4dIL/lZ0rAvzxvk8PTX3EaZLW4DgrtIgJ7qnqbiA0mzdisxNm6gSH8AbBhi4lLprc/HTGYXWyNNRv6iocORHXUTzN1yl5nfn9xP/ZhAV6jXP9AjdtwREXGTuG0yLPNSkK+1QIDAQAB",
    "manifest_version": 2,
    "name": "__MSG_appName__",
    "options_page": "pages/options.html",
    "permissions": [ "tabs", "bookmarks", "http://*/*", "https://*/*", "storage", "contextMenus", "downloads" ],
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "2.4.1"
+   "update_url": "https://ext.80x86.io/update/crx",
+   "version": "2.5.1"
 }
