@@ -11,3 +11,6 @@ suggest regex for magnet links:
 (ed2k|magnet):[\?\:\&;|\w\d\[\]\.\-()\/\=%\4e00-\9fa5]*
 ```
 
+## Installation
+
+Extension -> enable `Developer mode` -> Load Unpacked extension ...
